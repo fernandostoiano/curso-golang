@@ -12,7 +12,7 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 )
 
-// Usuario
+// Usuario struct
 type Usuario struct {
 	ID   int    `json:"id"`
 	Nome string `json:"nome"`
