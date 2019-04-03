@@ -20,6 +20,14 @@ type Usuario struct {
 
 // UsuarioHandler analisa o request e delega para função adequada
 func UsuarioHandler(w http.ResponseWriter, r *http.Request) {
+	decoder := json.NewDecoder(r.Body)
+	var u Usuario
+	err := decoder.Decode(&u)
+	if err != nil {
+		panic(err)
+	}
+	log.Println(u.Nome)
+
 	sid := strings.TrimPrefix(r.URL.Path, "/usuarios/")
 	id, _ := strconv.Atoi(sid)
 
